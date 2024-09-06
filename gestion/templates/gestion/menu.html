@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Menú Principal</title>
+</head>
+<body>
+    <h1>Menú Principal</h1>
+    <ul>
+        <li><a href="{% url 'gestion:listar_propietarios' %}">Listar Propietarios</a></li>
+        <li><a href="{% url 'gestion:registrar_propietario' %}">Registrar Propietario</a></li>
+        <li><a href="{% url 'gestion:listar_vehiculos' %}">Listar Vehículos</a></li>
+        <li><a href="{% url 'gestion:registrar_vehiculo' %}">Registrar Vehículo</a></li>
+        <li><a href="{% url 'gestion:listar_registros' %}">Listar Registros</a></li>
+        <li><a href="{% url 'gestion:registrar_entrada' %}">Registrar entrada</a></li>
+        <li><a href="{% url 'gestion:registrar_salida' %}">Registrar Salida</a></li>
+        
+       
+    </ul>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista de Propietarios</title>
+</head>
+<body>
+    <h1>Lista de Propietarios</h1>
+    <ul>
+        {% for propietario in propietarios %}
+            <li>
+                {{ propietario.nombre }} - Apartamento: {{ propietario.numero_apartamento }} - Teléfono: {{ propietario.telefono }} - Email: {{ propietario.email }}
+                <ul>
+                    {% for vehiculo in propietario.vehiculos.all %}
+                        <li>{{ vehiculo.matricula }} - {{ vehiculo.marca }} {{ vehiculo.modelo }} - Color: {{ vehiculo.color }}</li>
+                    {% empty %}
+                        <li>No tiene vehículos</li>
+                    {% endfor %}
+                </ul>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'gestion:registrar_propietario' %}">Registrar nuevo propietario</a>
+</body>
+</html>

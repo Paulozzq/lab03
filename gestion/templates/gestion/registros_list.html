@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registros de Entrada y Salida</title>
+</head>
+<body>
+    <h1>Registros de Entrada y Salida</h1>
+    <ul>
+        {% for registro in registros %}
+            <li>
+                Vehículo: {{ registro.vehiculo }} - Entrada: {{ registro.fecha_hora_entrada }} - Salida: {{ registro.fecha_hora_salida if registro.fecha_hora_salida else "No registrada" }}
+                {% if not registro.fecha_hora_salida %}
+                    <a href="{% url 'gestion:registrar_salida' registro.id %}">Registrar Salida</a>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'gestion:registrar_entrada' %}">Registrar nueva entrada</a>
+</body>
+</html>

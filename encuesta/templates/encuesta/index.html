@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Encuesta Alumnos Tecsup -2024 2</h1>
+    {% if question_list %}
+        <ul>
+        {% for pregunta in question_list %}
+            <li>
+                <a href="/encuesta/{{pregunta.id}}">
+                {{pregunta.question_text}}
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No hay registros</p>
+    {% endif %}
+</body>
+</html>

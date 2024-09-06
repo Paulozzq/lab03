@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registrar Salida</title>
+</head>
+<body>
+    <h1>Registrar Salida</h1>
+    <form method="post">
+        {% csrf_token %}
+        <p>Vehículo: {{ registro.vehiculo }}</p>
+        <p>Entrada: {{ registro.fecha_hora_entrada }}</p>
+        <button type="submit">Registrar Salida</button>
+    </form>
+    <a href="{% url 'gestion:listar_registros' %}">Volver a la lista de registros</a>
+</body>
+</html>

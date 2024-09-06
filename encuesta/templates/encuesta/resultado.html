@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encuesta</title>
+</head>
+<body>
+    <h1>{{ question.question_text }}</h1>
+        <ul>
+            {%for opcion in question.opcion_set.all %}
+                <li>{{opcion.opcion_text}} -- {{opcion.votos}} votos</li>
+            {% endfor %}
+        </ul>
+    <a href="{%url 'encuesta:detalle' question.id %}" >Votar de nuevo</a>
+    <a href="{%url 'encuesta:index'  %}">Ver preguntas</a>
+</body>
+</html>

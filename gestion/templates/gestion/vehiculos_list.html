@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista de Vehículos</title>
+</head>
+<body>
+    <h1>Lista de Vehículos</h1>
+    <ul>
+        {% for vehiculo in vehiculos %}
+            <li>
+                {{ vehiculo.matricula }} - {{ vehiculo.marca }} {{ vehiculo.modelo }} - Color: {{ vehiculo.color }}
+                <a href="{% url 'gestion:registrar_entrada' %}">Registrar Entrada</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'gestion:registrar_vehiculo' %}">Registrar nuevo vehículo</a>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Encuesta</title>
+</head>
+<body>
+        <h1>{{ question.question_text }}</h1>
+        <form action="{% url 'encuesta:resultado' question.id %}" method="post">
+            {% csrf_token %}
+            {% for opcion in question.opcion_set.all %}
+                <input type="radio" name="opcion" id="opcion{{ forloop.counter }}" value="{{ opcion.id }}">
+                <label for="opcion{{ forloop.counter }}">{{ opcion.opcion_text }}</label><br>
+            {% endfor %}
+            <input type="submit" value="Votar">
+        </form>
+        <a href="{% url 'encuesta:index' %}">Ver Preguntas</a>
+</body>
+</html>
